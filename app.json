@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "auth-praktikum",
+    "slug": "auth-praktikum",
+    "version": "1.0.0",
+    "scheme": "auth-praktikum",
+    "orientation": "portrait",
+    "platforms": ["ios", "android"]
+  }
+}
