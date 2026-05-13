@@ -6,10 +6,8 @@ import { auth } from '../config/firebase';
 
 const AuthContext = createContext();
 
-// Named export untuk hook-nya
 export const useAuth = () => useContext(AuthContext);
 
-// DEFAULT EXPORT (Senjata pamungkas anti-undefined)
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -23,8 +21,8 @@ export default function AuthProvider({ children }) {
     idleTimer.current = setTimeout(async () => {
       await signOut(auth);
       await SecureStore.deleteItemAsync('auth_token').catch(() => {});
-      Alert.alert('Session Berakhir', 'Anda otomatis logout karena tidak aktif selama 30 detik.');
-    }, 30 * 1000);
+      Alert.alert('Session Berakhir', 'Anda otomatis logout karena tidak aktif selama 5 detik.');
+    }, 5 * 1000);
   };
 
   useEffect(() => {

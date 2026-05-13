@@ -16,7 +16,7 @@ export default function ForgotPasswordScreen({ navigation }) {
     try {
       await sendPasswordResetEmail(auth, email);
       Alert.alert('Email Terkirim', 'Cek inbox untuk link reset password.', [
-        { text: 'OK', onPress: () => navigation.reset({ index: 0, routes: [{ name: 'Login' }] }) }
+        { text: 'OK', onPress: () => navigation.goBack() }
       ]);
     } catch (e) {
       Alert.alert('Gagal', e.message);
@@ -29,11 +29,18 @@ export default function ForgotPasswordScreen({ navigation }) {
     <View style={styles.container}>
       <Text style={styles.title}>Lupa Password</Text>
       <Text style={styles.subtitle}>Masukkan email Anda untuk mendapatkan link reset password.</Text>
-      <TextInput style={styles.input} placeholder="Email" value={email} onChangeText={setEmail} autoCapitalize="none" keyboardType="email-address" />
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+        autoCapitalize="none"
+        keyboardType="email-address"
+      />
       <TouchableOpacity style={styles.btn} onPress={handleReset} disabled={loading}>
         {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.btnText}>Kirim Email Reset</Text>}
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text style={styles.link}>Kembali ke Login</Text>
       </TouchableOpacity>
     </View>

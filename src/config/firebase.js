@@ -12,10 +12,8 @@ const firebaseConfig = {
   measurementId: "G-H2B66E85K2"
 }
 
-// Cegah duplicate-app error
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
-// Auth dengan AsyncStorage supaya session persist
 export const auth = initializeAuth(app, {
   persistence: getReactNativePersistence(ReactNativeAsyncStorage),
 });

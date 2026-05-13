@@ -28,7 +28,7 @@ export default function HomeScreen() {
           </Text>
         )}
         <Text style={styles.info}>
-          Anda akan otomatis logout jika tidak aktif selama 30 detik.
+          Anda akan otomatis logout jika tidak aktif selama 5 detik.
         </Text>
         <TouchableOpacity style={styles.btnLogout} onPress={handleLogout}>
           <Text style={styles.btnText}>Logout</Text>
