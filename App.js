@@ -1,8 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { ActivityIndicator, View } from "react-native";
+<<<<<<< HEAD
 import AuthProvider, { useAuth } from "./src/contexts/AuthContext";
 import ChatScreen from "./src/screens/ChatScreen";
+=======
+
+import AuthProvider, { useAuth } from "./src/contexts/AuthContext";
+
+>>>>>>> 679f7443df46127fdfb4676497f3f349d9551ae9
 import ForgotPasswordScreen from "./src/screens/ForgotPasswordScreen";
 import HomeScreen from "./src/screens/HomeScreen";
 import LoginScreen from "./src/screens/LoginScreen";
@@ -22,9 +28,14 @@ function AuthStack() {
 
 function AppStack() {
   return (
+<<<<<<< HEAD
     <Stack.Navigator screenOptions={{ headerShown: true }}>
       <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} />
       <Stack.Screen name="Chat" component={ChatScreen} options={{ title: '💬 Group Chat' }} />
+=======
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Home" component={HomeScreen} />
+>>>>>>> 679f7443df46127fdfb4676497f3f349d9551ae9
     </Stack.Navigator>
   );
 }

@@ -1,14 +1,22 @@
+<<<<<<< HEAD
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Alert, StyleSheet, Text, TouchableOpacity,
   TouchableWithoutFeedback, View
 } from 'react-native';
+=======
+import React from 'react';
+import { View, Text, TouchableOpacity, TouchableWithoutFeedback, StyleSheet, Alert } from 'react-native';
+>>>>>>> 679f7443df46127fdfb4676497f3f349d9551ae9
 import { useAuth } from '../contexts/AuthContext';
 
 export default function HomeScreen() {
   const { user, logout, resetIdleTimer } = useAuth();
+<<<<<<< HEAD
   const navigation = useNavigation();
+=======
+>>>>>>> 679f7443df46127fdfb4676497f3f349d9551ae9
 
   const handleLogout = () => {
     Alert.alert('Konfirmasi', 'Yakin ingin logout?', [
@@ -17,6 +25,7 @@ export default function HomeScreen() {
     ]);
   };
 
+<<<<<<< HEAD
   const getInitial = () => {
     const name = user?.displayName || user?.email || '?';
     return name.charAt(0).toUpperCase();
@@ -84,12 +93,36 @@ export default function HomeScreen() {
           <Text style={styles.btnLogoutText}>Logout</Text>
         </TouchableOpacity>
 
+=======
+  return (
+    <TouchableWithoutFeedback onPress={resetIdleTimer}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Selamat Datang!</Text>
+        <Text style={styles.email}>
+          {user?.displayName || user?.email || 'Pengguna'}
+        </Text>
+        <Text style={styles.provider}>
+          Login via: {user?.providerData?.[0]?.providerId === 'google.com' ? 'Google' : 'Email/Password'}
+        </Text>
+        {user?.providerData?.[0]?.providerId !== 'google.com' && (
+          <Text style={{ fontSize: 13, marginBottom: 16, color: user?.emailVerified ? 'green' : 'orange' }}>
+            {user?.emailVerified ? 'Email terverifikasi' : 'Email belum terverifikasi'}
+          </Text>
+        )}
+        <Text style={styles.info}>
+          Anda akan otomatis logout jika tidak aktif selama 5 detik.
+        </Text>
+        <TouchableOpacity style={styles.btnLogout} onPress={handleLogout}>
+          <Text style={styles.btnText}>Logout</Text>
+        </TouchableOpacity>
+>>>>>>> 679f7443df46127fdfb4676497f3f349d9551ae9
       </View>
     </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
   container: {
     flex: 1, backgroundColor: '#f5f6fa',
     padding: 20, paddingTop: 40,
@@ -148,4 +181,13 @@ const styles = StyleSheet.create({
     paddingVertical: 14, alignItems: 'center',
   },
   btnLogoutText: { color: '#e53935', fontWeight: '700', fontSize: 15 },
+=======
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24, backgroundColor: '#f9f9f9' },
+  title: { fontSize: 26, fontWeight: 'bold', marginBottom: 8 },
+  email: { fontSize: 16, color: '#555', marginBottom: 4 },
+  provider: { fontSize: 13, color: '#888', marginBottom: 8 },
+  info: { fontSize: 13, color: '#aaa', textAlign: 'center', marginBottom: 32 },
+  btnLogout: { backgroundColor: '#e53935', paddingVertical: 12, paddingHorizontal: 40, borderRadius: 8 },
+  btnText: { color: '#fff', fontWeight: '600', fontSize: 15 },
+>>>>>>> 679f7443df46127fdfb4676497f3f349d9551ae9
 });
